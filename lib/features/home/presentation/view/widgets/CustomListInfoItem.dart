@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app_new/features/home/presentation/viewmodel/home_cubit.dart';
 
 import '../../../../../core/utils/LineSeperated.dart';
 import '../../../../../core/utils/Styles.dart';
 import 'CustomInfoWeatherItem.dart';
+
 class CustomListInfoItem extends StatelessWidget {
   const CustomListInfoItem({
     super.key,
@@ -10,22 +13,32 @@ class CustomListInfoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.0,horizontal: 40),
-      child: Column(
-        children: [
-          Text(
-            'ZAGAZIG',
-            style: Styles.textstyle20,
-          ),
-          Text(
-            'Monday,May 16',
-            style: Styles.textstyle14default,
-          ),
-          LineSeperated(),
-          SizedBox(height: 5,),
-          CustomInfoWeatherItem(),
-        ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 40),
+      child: BlocBuilder<HomeCubit, HomeState>(
+        builder: (context, state) {
+          if(state is HomeSuccess){
+            return Column(
+              children: [
+                Text(
+                  state.weatherModel.location!.name.toString(),
+                  style: Styles.textstyle20,
+                ),
+                Text(
+                  state.weatherModel.forecast!.forecastday![0].date.toString(),
+                  style: Styles.textstyle14default,
+                ),
+                const LineSeperated(),
+                const SizedBox(height: 5,),
+                CustomInfoWeatherItem(weatherModel: state.weatherModel,),
+              ],
+            );
+          }else if(state is HomeFailure){
+            return Center(child: Text(state.errmessage.toString(),style: Styles.textstyle20,));
+          }else{
+            return const CircularProgressIndicator();
+          }
+        },
       ),
     );
   }
