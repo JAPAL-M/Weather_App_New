@@ -10,29 +10,28 @@ class CustomWeatherDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+         const Text(
             'OTHER DAYS',
             style: Styles.textstyle14bold,
           ),
           SizedBox(
-            height: 5,
+            height: MediaQuery.of(context).size.height / 100,
           ),
-          OtherCityListView(),
-          SizedBox(height: 10,),
+          const  OtherCityListView(),
+          SizedBox(height: MediaQuery.of(context).size.height / 100,),
           Row(
             children: [
               Text('FORCAST NEXT 5 DAYS',style: Styles.textstyle15bold,),
-              Spacer(),
-              Icon(Icons.next_plan_outlined)
+              const Spacer(),
+              const Icon(Icons.next_plan_outlined)
             ],
           ),
-          SizedBox(height: 5,),
-          CustomMyChart()
+          const CustomMyChart()
         ],
       ),
     );

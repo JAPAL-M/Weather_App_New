@@ -16,10 +16,9 @@ class CustomInfoWeatherItem extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(weatherModel.current!.condition!.text.toString(),
                   style: Styles.textstyle20),
@@ -41,8 +40,8 @@ class CustomInfoWeatherItem extends StatelessWidget {
           Column(
             children: [
               Image.network(
-                'http:${weatherModel.current!.condition!.icon}',height: 80,
-                width: 80,
+                'http:${weatherModel.current!.condition!.icon}',height: MediaQuery.of(context).size.width / 6,
+                width: MediaQuery.of(context).size.width / 6,
                 fit: BoxFit.fill,),
               Text(
                 'wind ${weatherModel.current!.windMph!.toInt()} m/s',

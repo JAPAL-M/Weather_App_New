@@ -19,8 +19,8 @@ class OtherCityListView extends StatelessWidget {
     if (state is HomeSuccess) {
       return ListView.separated(
         itemBuilder: (context, index) => OtherCityListItem(weatherModel: state.weatherModel,index: index,),
-        separatorBuilder: (context, index) => const SizedBox(
-          width: 10,
+        separatorBuilder: (context, index) => SizedBox(
+          width: MediaQuery.of(context).size.width / 70,
         ),
         itemCount: 5,
         physics: const BouncingScrollPhysics(),

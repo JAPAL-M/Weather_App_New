@@ -17,6 +17,7 @@ class OtherCityInfoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           weatherModel.location!.name.toString(),
@@ -28,8 +29,8 @@ class OtherCityInfoItem extends StatelessWidget {
         ),
         Image.network(
           'http:${weatherModel.forecast!.forecastday![index].day!.condition!.icon}',
-          width: 50,
-          height: 50,
+          width: MediaQuery.of(context).size.width / 9,
+          height: MediaQuery.of(context).size.width / 9,
           fit: BoxFit.fill,
         ),
          Text(

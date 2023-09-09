@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:weather_app_new/constant.dart';
 import 'package:weather_app_new/core/utils/apiservices.dart';
@@ -22,10 +23,15 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context)=> HomeCubit(HomeRepoImpl(ApiServices(Dio())))..fetchDataWeather())
       ],
-      child: GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.light().copyWith(scaffoldBackgroundColor: primaryColor),
-        home: const HomeView(),
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        child: GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData.light().copyWith(scaffoldBackgroundColor: primaryColor),
+          home: const HomeView(),
+        ),
       ),
     );
   }

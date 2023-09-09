@@ -15,24 +15,18 @@ class CustomContainerListItem extends StatelessWidget {
       child: Column(
         children: [
           const CustomTextFormField(),
-          const SizedBox(
-            height: 20,
+           SizedBox(
+            height: MediaQuery.of(context).size.height / 20,
           ),
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.width / 2.2,
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 7,
-                    offset: const Offset(0, 3),
-                  )
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16)),
-            child: const CustomListInfoItem(),
+            child: Card(
+              elevation: 7,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)
+                ),
+                child: const CustomListInfoItem()),
           )
         ],
       ),

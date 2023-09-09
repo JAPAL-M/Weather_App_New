@@ -14,7 +14,7 @@ class CustomListInfoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 40),
+      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: MediaQuery.of(context).size.width / 20),
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           if(state is HomeSuccess){
@@ -29,7 +29,7 @@ class CustomListInfoItem extends StatelessWidget {
                   style: Styles.textstyle14default,
                 ),
                 const LineSeperated(),
-                const SizedBox(height: 5,),
+                 SizedBox(height: MediaQuery.of(context).size.height / 60,),
                 CustomInfoWeatherItem(weatherModel: state.weatherModel,),
               ],
             );
