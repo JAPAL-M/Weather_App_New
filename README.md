@@ -1,16 +1,6 @@
 # weather_app_new
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Weather app is display temperature weather in world , I use in this project:
+Architecture: Clean architecture with mvvm , State Management: Bloc ,  Clean Code ,
+Dio, Responsive Ui.
+Features: Splash Screen , Home Feature , Forcast 5 days , Search Books.
